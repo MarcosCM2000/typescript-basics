@@ -8,3 +8,9 @@ function combine(n1, n2, resultConversion) {
 }
 console.log(combine(20, 25, 'as-number'));
 console.log(combine('20', '25', 'as-text'));
+function printResult(n) {
+    console.log(n);
+}
+var combineValues;
+combineValues = printResult;
+console.log(combineValues('s'));
