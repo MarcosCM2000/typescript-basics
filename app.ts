@@ -1,20 +1,10 @@
-/*const person: {
-    name: string,
-    age: number,
-    hobbies: string[],
-    role: [number, string]
-}*/ 
-enum Role {ADMIN, READ_ONLY, AUTHOR};
-const person = {
-    name: 'Marcos',
-    age: 20,
-    hobbies: ['sports', 'cooking'],
-    role: Role.ADMIN
+function combine(n1 :number | string, n2:number | string) {
+    if (typeof n1 === 'number' && typeof n2 === 'number') {
+        return n1+n2;
+    } else {
+        return n1.toString() + n2.toString();
+    }
 }
-console.log(person);
-for (const hobby of person.hobbies) {
-    console.log(hobby);
-}
-if (person.role === Role.ADMIN) {
-    console.log('xxxx')
-}
+
+console.log(combine(20,25));
+console.log(combine('20','25'));
