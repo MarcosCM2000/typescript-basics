@@ -1,6 +1,7 @@
+"use strict";
 //  unknown
-var userInput;
-var userName;
+let userInput;
+let userName;
 userInput = 5;
 userName = 'Max';
 //  never
