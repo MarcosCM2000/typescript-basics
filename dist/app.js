@@ -1,14 +1,14 @@
 "use strict";
-//  unknown
-let userInput;
-let userName;
-userInput = 5;
-userName = 'Max';
-//  never
-function generateError(msg, code) {
-    throw {
-        message: msg,
-        codeNumber: code
-    };
+class Department {
+    // executed when object is created 
+    constructor(n) {
+        this.name = n;
+    }
+    describe() {
+        console.log('Department: ' + this.name);
+    }
 }
-generateError('An error occured', 500);
+const accounting = new Department('Accounting');
+accounting.describe();
+const accountingCopy = { name: 's', describe: accounting.describe }; // pointer at the described method in my accounting object
+accountingCopy.describe();

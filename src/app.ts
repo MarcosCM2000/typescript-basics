@@ -1,14 +1,18 @@
-//  unknown
-let userInput: unknown;
-let userName: string;
-userInput = 5;
-userName = 'Max';
+class Department {
+    name: string;   //  field of class | property
 
-//  never
-function generateError(msg: string, code: number): never{
-    throw{
-        message: msg,
-        codeNumber: code
-    };
+    // executed when object is created 
+    constructor(n: string){
+        this.name = n;
+    }
+
+    describe(this: Department ) { //to always refer to an instance that's based on department class
+        console.log('Department: ' + this.name ); 
+    }
 }
-generateError('An error occured', 500);
+
+const accounting = new Department('Accounting');
+accounting.describe();
+
+const accountingCopy = { name: 's', describe: accounting.describe } // pointer at the described method in my accounting object
+accountingCopy.describe();
