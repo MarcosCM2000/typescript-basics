@@ -19,9 +19,17 @@ class Department {
     }
 }
 
+class ITDepartment extends Department {
+  constructor(id: string, public admins: string[]) {
+    super(id, 'IT');
+    this.admins = admins;
+  }
+}
+
 const accounting = new Department('1', 'Accounting');
     accounting.describe();
     accounting.addEmployee('Marcos');
+const it = new ITDepartment('2', ['Marcos'])
 
 //  const accountingCopy = { name: 's', describe: accounting.describe } // pointer at the described method in my accounting object
 //  accountingCopy.describe();
