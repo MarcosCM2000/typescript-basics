@@ -25,6 +25,25 @@ class ITDepartment extends Department {
         this.admins = admins;
     }
 }
+class AccountingDepartment extends Department {
+    constructor(id, reports) {
+        super(id, 'Accounting');
+        this.reports = reports;
+        this.reports = reports;
+    }
+    addEmployee(name) {
+        if (name === 'Max') {
+            return;
+        }
+        this.employees.push(name);
+    }
+    addReport(text) {
+        this.reports.push(text);
+    }
+    printReports() {
+        console.log(this.reports);
+    }
+}
 const accounting = new Department('1', 'Accounting');
 accounting.describe();
 accounting.addEmployee('Marcos');
