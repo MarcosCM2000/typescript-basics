@@ -1,14 +1,31 @@
-//  unknown
-let userInput: unknown;
-let userName: string;
-userInput = 5;
-userName = 'Max';
-
-//  never
-function generateError(msg: string, code: number): never{
-    throw{
-        message: msg,
-        codeNumber: code
-    };
+interface AddFn {
+    //Interface as function type
+    (a: number, b: number): number;
 }
-generateError('An error occured', 500);
+
+const add2: AddFn = (n1: number, n2: number) => {
+    return n1+n2;
+}
+
+interface Named {
+    readonly name?: string;
+    outputName?: string;
+}
+interface Greetable extends Named{
+    greet(phrase: string): void;
+}
+class Person implements Greetable {
+    name?: string;
+    age = 30;
+    constructor (n?: string) {
+        this.name = n;
+    }
+    greet(phrase: string): void {
+        console.log(phrase+this.name);
+    }
+
+}
+
+let user1: Greetable;
+user1 = new Person('Marcos');
+user1.greet('Hi there - ');

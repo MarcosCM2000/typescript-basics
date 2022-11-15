@@ -1,14 +1,16 @@
 "use strict";
-//  unknown
-let userInput;
-let userName;
-userInput = 5;
-userName = 'Max';
-//  never
-function generateError(msg, code) {
-    throw {
-        message: msg,
-        codeNumber: code
-    };
+const add2 = (n1, n2) => {
+    return n1 + n2;
+};
+class Person {
+    constructor(n) {
+        this.age = 30;
+        this.name = n;
+    }
+    greet(phrase) {
+        console.log(phrase + this.name);
+    }
 }
-generateError('An error occured', 500);
+let user1;
+user1 = new Person('Marcos');
+user1.greet('Hi there - ');
