@@ -45,6 +45,13 @@ class AccountingDepartment extends Department {
     set recentReport(value) {
         this.addReport(value);
     }
+    static getInstance() {
+        if (AccountingDepartment.instance) {
+            return this.instance;
+        }
+        this.instance = new AccountingDepartment('d2', []);
+        return this.instance;
+    }
     describe() {
         console.log('Accounting Department - ID:' + this.id);
     }
@@ -67,7 +74,8 @@ const x = Department.createEmployee('Marcos');
     department.describe();
     department.addEmployee('Marcos');*/
 const it = new ITDepartment('2', ['Marcos']);
-const accounting = new AccountingDepartment('3', ['A', 'B']);
+const accounting = AccountingDepartment.getInstance();
+//  const accounting = new AccountingDepartment('3', ['A', 'B']);
 accounting.recentReport;
 //  const accountingCopy = { name: 's', describe: accounting.describe } // pointer at the described method in my accounting object
 //  accountingCopy.describe();
