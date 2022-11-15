@@ -1,10 +1,10 @@
 class Department {
-    public name: string;   //  field of class | property
+    //private name: string;   //  field of class | property
     private employees: string [] = [];
 
     // executed when object is created 
-    constructor(n: string){
-        this.name = n;
+    constructor(public name: string){
+        this.name = name;
     }
 
     describe(this: Department ) { //to always refer to an instance that's based on department class

@@ -1,9 +1,11 @@
 "use strict";
 class Department {
     // executed when object is created 
-    constructor(n) {
+    constructor(name) {
+        this.name = name;
+        //private name: string;   //  field of class | property
         this.employees = [];
-        this.name = n;
+        this.name = name;
     }
     describe() {
         console.log('Department: ' + this.name);
