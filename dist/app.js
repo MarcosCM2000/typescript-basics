@@ -62,3 +62,14 @@ const errorBag = {
     email: 'Not valid email',
     username: 'Must start with capital letter'
 };
+//  Optional chaining
+const fetchedUserData = {
+    id: '1',
+    name: 'Max',
+    //job: { title: 'CEO' }
+};
+//console.log(fetchedUserData?.job?.title)
+//  Nullish coalescing
+const userInput = '';
+const storedData = userInput !== null && userInput !== void 0 ? userInput : 'DEFAULT';
+console.log(userInput);
