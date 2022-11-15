@@ -21,6 +21,9 @@ type Combinable = string | number;
 type Numeric = number | boolean;
 type Universal = Combinable | Numeric;
 
+//  function overload
+function add2(a: number, b: number) : number;
+function add2(a: string, b: string) : string;
 //  type guards
 function add2(a: Combinable, b: Combinable){
     
