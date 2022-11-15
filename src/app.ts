@@ -3,7 +3,7 @@ class Department {
     private employees: string [] = [];
 
     // executed when object is created 
-    constructor(public name: string){
+    constructor(readonly id: string, public name: string){
         this.name = name;
     }
 
@@ -19,7 +19,7 @@ class Department {
     }
 }
 
-const accounting = new Department('Accounting');
+const accounting = new Department('1', 'Accounting');
     accounting.describe();
     accounting.addEmployee('Marcos');
 
