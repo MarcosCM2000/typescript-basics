@@ -11,6 +11,10 @@ class Department {
         console.log('Department: ' + this.name ); 
     }
 
+    static createEmployee(name: string) {
+        return { name: name};
+    }
+
     addEmployee(employee: string) {
         this.employees.push(employee);
     }
@@ -58,7 +62,9 @@ class AccountingDepartment extends Department {
     printReports() {
         console.log(this.reports);
     }
-  }
+}
+
+const x = Department.createEmployee('Marcos');
 
 const department = new Department('1', 'Accounting');
     department.describe();
