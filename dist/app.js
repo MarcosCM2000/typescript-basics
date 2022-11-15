@@ -1,4 +1,7 @@
 "use strict";
+const add2 = (n1, n2) => {
+    return n1 + n2;
+};
 class Person {
     constructor(n) {
         this.age = 30;

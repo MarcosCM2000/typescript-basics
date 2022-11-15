@@ -1,3 +1,12 @@
+interface AddFn {
+    //Interface as function type
+    (a: number, b: number): number;
+}
+
+const add2: AddFn = (n1: number, n2: number) => {
+    return n1+n2;
+}
+
 interface Named {
     readonly name: string
 }
