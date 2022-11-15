@@ -53,8 +53,12 @@ function moveAnimal(animal) {
     }
 }
 //  type casting
-//  form #1
-//  const paragraph = <HTMLParagraphElement>document.getElementById('message-output')
-//  form #2
+//      form #1
+//      const paragraph = <HTMLParagraphElement>document.getElementById('message-output')
+//      form #2
 const paragraph = document.getElementById('message-output');
 console.log(paragraph.textContent);
+const errorBag = {
+    email: 'Not valid email',
+    username: 'Must start with capital letter'
+};

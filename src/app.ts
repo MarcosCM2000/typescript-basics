@@ -92,8 +92,18 @@ function moveAnimal(animal: Animal) {
 }
 
 //  type casting
-//  form #1
-//  const paragraph = <HTMLParagraphElement>document.getElementById('message-output')
-//  form #2
+//      form #1
+//      const paragraph = <HTMLParagraphElement>document.getElementById('message-output')
+//      form #2
 const paragraph = document.getElementById('message-output')! as HTMLParagraphElement;
 console.log(paragraph.textContent)
+
+//  Index properties
+interface ErrorContainer {
+    [prop: string]: string
+
+}
+const errorBag: ErrorContainer = {
+    email: 'Not valid email',
+    username: 'Must start with capital letter'
+}
