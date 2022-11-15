@@ -27,9 +27,20 @@ class ITDepartment extends Department {
 }
 
 class AccountingDepartment extends Department {
+    private lastReport: string;
+    get recentReport(){
+        if (this.lastReport) {
+            return this.lastReport;
+        };
+        throw new Error('No report found');
+    }
+    set recentReport(value: string){
+        this.addReport(value);
+    }
     constructor(id: string, private reports: string[]) {
       super(id, 'Accounting');
       this.reports = reports;
+      this.lastReport = reports[0];
     }
 
     addEmployee(name: string): void {
@@ -41,6 +52,7 @@ class AccountingDepartment extends Department {
 
     addReport(text: string) {
         this.reports.push(text);
+        this.lastReport = text;
     }
 
     printReports() {
@@ -48,10 +60,12 @@ class AccountingDepartment extends Department {
     }
   }
 
-const accounting = new Department('1', 'Accounting');
-    accounting.describe();
-    accounting.addEmployee('Marcos');
+const department = new Department('1', 'Accounting');
+    department.describe();
+    department.addEmployee('Marcos');
 const it = new ITDepartment('2', ['Marcos']);
+const accounting = new AccountingDepartment('3', ['A', 'B']);
+    accounting.recentReport;
 
 //  const accountingCopy = { name: 's', describe: accounting.describe } // pointer at the described method in my accounting object
 //  accountingCopy.describe();
