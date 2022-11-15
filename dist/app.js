@@ -4,3 +4,40 @@ const e1 = {
     priviliges: [''],
     startDate: new Date()
 };
+//  type guards
+function add2(a, b) {
+    if (typeof a === 'string' || typeof b === 'string') {
+        return a.toString() + b.toString();
+    }
+    return a + b;
+}
+function printEmployeeInformation(emp) {
+    console.log('Name: ' + emp.name);
+    if ('privileges' in emp) {
+        //console.log(emp.privileges);
+    }
+}
+//      with classes
+class Car {
+    drive() {
+        console.log('aaa');
+    }
+}
+class Truck {
+    drive() {
+        console.log('bbb');
+    }
+    loadCargo() {
+        console.log('ccc');
+    }
+}
+const v1 = new Car();
+const v2 = new Truck();
+function useVehicle(vehicle) {
+    vehicle.drive();
+    if (vehicle instanceof Truck) {
+        vehicle.loadCargo();
+    }
+}
+useVehicle(v1);
+useVehicle(v2);
