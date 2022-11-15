@@ -1,15 +1,16 @@
-class Department {
+abstract class Department {
     //private name: string;   //  field of class | property
     protected employees: string [] = [];
 
     // executed when object is created 
-    constructor(readonly id: string, public name: string){
+    constructor( readonly id: string, public name: string){
         this.name = name;
     }
 
-    describe(this: Department ) { //to always refer to an instance that's based on department class
-        console.log('Department: ' + this.name ); 
-    }
+    /*abstract describe(this: Department ) { //to always refer to an instance that's based on department class
+        //  console.log('Department: ' + this.name ); 
+    }*/
+    abstract describe(this: Department) : void;
 
     static createEmployee(name: string) {
         return { name: name};
@@ -28,6 +29,9 @@ class ITDepartment extends Department {
     super(id, 'IT');
     this.admins = admins;
   }
+  describe(this: Department): void {
+      console.log('IT Department - ID:' + this.id);
+  }
 }
 
 class AccountingDepartment extends Department {
@@ -45,6 +49,10 @@ class AccountingDepartment extends Department {
       super(id, 'Accounting');
       this.reports = reports;
       this.lastReport = reports[0];
+    }
+
+    describe(this: Department): void {
+        console.log('Accounting Department - ID:' + this.id);
     }
 
     addEmployee(name: string): void {
@@ -66,9 +74,9 @@ class AccountingDepartment extends Department {
 
 const x = Department.createEmployee('Marcos');
 
-const department = new Department('1', 'Accounting');
+/*const department = new Department('1', 'Accounting');
     department.describe();
-    department.addEmployee('Marcos');
+    department.addEmployee('Marcos');*/
 const it = new ITDepartment('2', ['Marcos']);
 const accounting = new AccountingDepartment('3', ['A', 'B']);
     accounting.recentReport;
