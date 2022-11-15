@@ -100,8 +100,7 @@
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
-  "exclude": [
-   "src/functions.ts",
-   "src/object-types.ts"
+  "include": [
+    "src/app.ts"
   ]
 }

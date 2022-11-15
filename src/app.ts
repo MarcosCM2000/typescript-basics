@@ -1,31 +1,22 @@
-interface AddFn {
-    //Interface as function type
-    (a: number, b: number): number;
+//  Intersection types
+type Admin = {
+    name: string;
+    priviliges: string[];
 }
 
-const add2: AddFn = (n1: number, n2: number) => {
-    return n1+n2;
+type Employee = {
+    name: string;
+    startDate: Date;
 }
 
-interface Named {
-    readonly name?: string;
-    outputName?: string;
-}
-interface Greetable extends Named{
-    greet(phrase: string): void;
-}
-class Person implements Greetable {
-    name?: string;
-    age = 30;
-    constructor (n?: string) {
-        this.name = n;
-    }
-    greet(phrase: string): void {
-        console.log(phrase+this.name);
-    }
+type ElevatedEmployee = Admin & Employee;
 
+const e1: ElevatedEmployee = {
+    name: 'Marcos',
+    priviliges: [''],
+    startDate: new Date()
 }
 
-let user1: Greetable;
-user1 = new Person('Marcos');
-user1.greet('Hi there - ');
+type Combinable = string | number;
+type Numeric = number | boolean;
+type Universal = Combinable | Numeric;
