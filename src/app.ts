@@ -9,7 +9,7 @@ const promise: Promise<string> = new Promise((resolve, reject) => {
 
 promise.then(data => {}, failure => {})
 
-//  generic functions
+//  generic functions & constraints
 function merge<T extends object, U extends object>(objA: T, objB: U){
     return {...objA, ...objB};
 }
@@ -19,6 +19,7 @@ const mergedObj2 = merge({x: 2}, {y: 4});
 console.log(mergedObj.age);
 console.log(mergedObj2);
 
+//  generic functions with interfaces
 interface Lengthy {
     length: number;
 }
@@ -29,4 +30,11 @@ function countAndDescribe<T extends Lengthy>(element: T): [T, string] {
     }
     return [element, descriptionText];
 }
-console.log(countAndDescribe([]))
+console.log(countAndDescribe([]));
+
+//  keyof constraint
+function extractAndConvert<T extends object, U extends keyof T>(obj: T, key: U) {
+    return 'Value: '+ obj[key];
+}
+
+extractAndConvert({name: 'Marcos'}, 'name');

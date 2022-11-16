@@ -7,7 +7,7 @@ const promise = new Promise((resolve, reject) => {
     }, 2000);
 });
 promise.then(data => { }, failure => { });
-//  generic functions
+//  generic functions & constraints
 function merge(objA, objB) {
     return Object.assign(Object.assign({}, objA), objB);
 }
@@ -23,3 +23,8 @@ function countAndDescribe(element) {
     return [element, descriptionText];
 }
 console.log(countAndDescribe([]));
+//  keyof constraint
+function extractAndConvert(obj, key) {
+    return 'Value: ' + obj[key];
+}
+extractAndConvert({ name: 'Marcos' }, 'name');
