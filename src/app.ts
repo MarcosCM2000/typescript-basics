@@ -55,3 +55,22 @@ class DataStorage<T extends string | number | boolean> {
 
 const textStorage = new DataStorage<string>();
 const numberStorage = new DataStorage<number>();
+
+//  Generic utility types
+interface CourseGoal {
+    title: string;
+    description: string;
+    completeUntil: Date;
+}
+
+function createCourseGoal(title: string, description: string, completeUntil: Date): CourseGoal{
+    //  partial: We say that in the end, object will be of type T
+    let courseGoal: Partial<CourseGoal> = {};
+    courseGoal.title = title;
+    courseGoal.description = description;
+    courseGoal.completeUntil = completeUntil;
+    return courseGoal as CourseGoal;
+}
+
+//  read only
+const namesArray: Readonly<string[]> = ['1', '2'];

@@ -45,3 +45,13 @@ class DataStorage {
 }
 const textStorage = new DataStorage();
 const numberStorage = new DataStorage();
+function createCourseGoal(title, description, completeUntil) {
+    //  partial: We say that in the end, object will be of type T
+    let courseGoal = {};
+    courseGoal.title = title;
+    courseGoal.description = description;
+    courseGoal.completeUntil = completeUntil;
+    return courseGoal;
+}
+//  read only
+const namesArray = ['1', '2'];
