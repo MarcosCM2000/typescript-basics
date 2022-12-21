@@ -1,57 +1,23 @@
 "use strict";
-//  generics
-const names = [];
-const promise = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve('This is done');
-    }, 2000);
-});
-promise.then(data => { }, failure => { });
-//  generic functions & constraints
-function merge(objA, objB) {
-    return Object.assign(Object.assign({}, objA), objB);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+//  First class decorator
+function Logger(constructor) {
+    console.log('logging...');
+    console.log(constructor);
 }
-const mergedObj = merge({ name: 'Marcos' }, { age: 22 });
-const mergedObj2 = merge({ x: 2 }, { y: 4 });
-console.log(mergedObj.age);
-console.log(mergedObj2);
-function countAndDescribe(element) {
-    let descriptionText = 'Got no value';
-    if (element.length > 0) {
-        descriptionText = 'Got value';
-    }
-    return [element, descriptionText];
-}
-console.log(countAndDescribe([]));
-//  keyof constraint
-function extractAndConvert(obj, key) {
-    return 'Value: ' + obj[key];
-}
-extractAndConvert({ name: 'Marcos' }, 'name');
-//  Generic classes
-class DataStorage {
+let Person = class Person {
     constructor() {
-        this.data = [];
+        this.name = 'Max';
+        console.log('Creating person object...');
     }
-    addItem(item) {
-        this.data.push(item);
-    }
-    removeItem(item) {
-        this.data.splice(this.data.indexOf(item), 1);
-    }
-    getItems() {
-        return [...this.data];
-    }
-}
-const textStorage = new DataStorage();
-const numberStorage = new DataStorage();
-function createCourseGoal(title, description, completeUntil) {
-    //  partial: We say that in the end, object will be of type T
-    let courseGoal = {};
-    courseGoal.title = title;
-    courseGoal.description = description;
-    courseGoal.completeUntil = completeUntil;
-    return courseGoal;
-}
-//  read only
-const namesArray = ['1', '2'];
+};
+Person = __decorate([
+    Logger
+], Person);
+const pers = new Person();
+console.log(pers);
